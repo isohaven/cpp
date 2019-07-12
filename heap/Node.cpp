@@ -1,6 +1,6 @@
 #include "Node.h"
 Node::Node(int v) {
-	value = v;
+	value = priority = v;
 }
 Node::Node(int v, int p) {
 	value = v;
