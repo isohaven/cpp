@@ -1,22 +1,22 @@
 #include <iostream>
 #include <vector>
 class MinHeap {
-	int size;
 	std::vector<int> heap;
 	public:
 	MinHeap() {
-		size = 0;
 	}
 	void enqueue(int value) {
-		// place at bottom
-		heap[++size] = value;
 		// bubbleUp();
 	}
 	int dequeue() {
 		if(isEmpty()) {
 			throw std::runtime_error("empty queue");
 		}
-		int result = peek();
+		else if (list.size() == 1) {
+			int val = heap[0];
+			a.erase(a.begin());
+			return val;
+		}
 	}
 	int peek() {
 		if(isEmpty()) {
@@ -27,7 +27,7 @@ class MinHeap {
 
 
 	bool isEmpty() {
-		return size == 0;
+		return heap.size <= 0;
 	}
 
 
