@@ -8,28 +8,28 @@ class MinHeap {
 	void enqueue(int value) {
 		heap.push_back(value);
 		int i = heap.size() -1;
-		int parent = parent(i);
+		int par = parent(i);
 
 		// bubble up
-		while(parent != i && list[i] < list[parent]) {
-			swap(i, parent);
-			i = parent;
-			parent = parent(i);
+		while(par != i && heap[i] < heap[par]) {
+			swap(i, par);
+			i = par;
+			par = parent(i);
 		}
 	}
 	int dequeue() {
 		if(isEmpty()) {
 			throw std::runtime_error("empty queue");
 		}
-		else if (list.size() == 1) {
+		else if (heap.size() == 1) {
 			int min = heap[0];
-			a.erase(a.begin());
+			heap.erase(heap.begin());
 			return min;
 		}
 		else {
 			int min = heap[0];
 			int lastVal = heap.back();
-			heap.insert(0, lastVal);
+			heap.insert(heap.begin(), lastVal);
 			heap.pop_back();
 			// bubbledown
 			return min;
@@ -44,15 +44,20 @@ class MinHeap {
 
 
 	bool isEmpty() {
-		return heap.size <= 0;
+		return heap.size() <= 0;
+	}
+	void print() {
+		for(auto i : heap) {
+			std::cout << i << ' ';
+		}
 	}
 	
 	private:
 
 	void swap(int a, int b) {
-		int temp = list[b];
-		heap.insert(b, heap[a]);
-		heap.insert(a. temp):
+		int temp = heap[b];
+		heap.insert(heap.begin() +b, heap[a]);
+		heap.insert(heap.begin() +a, temp);
 	}
 	int parent(int i) {
 		return (i-1) / 2;
@@ -69,6 +74,10 @@ class MinHeap {
 
 int main() {
 	MinHeap h;
-	h.peek();
+	h.enqueue(3);
+	h.enqueue(6);
+	h.enqueue(9);
+	h.print();
+	
 	return 0;
 }
