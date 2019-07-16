@@ -50,14 +50,13 @@ class MinHeap {
 		for(auto i : heap) {
 			std::cout << i << ' ';
 		}
+		std::cout << "\n";
 	}
 	
 	private:
 
 	void swap(int a, int b) {
-		int temp = heap[b];
-		heap.insert(heap.begin() +b, heap[a]);
-		heap.insert(heap.begin() +a, temp);
+		std::iter_swap(heap.begin() +a, heap.begin() +b);
 	}
 	int parent(int i) {
 		return (i-1) / 2;
@@ -75,8 +74,8 @@ class MinHeap {
 int main() {
 	MinHeap h;
 	h.enqueue(3);
-	h.enqueue(6);
-	h.enqueue(9);
+	h.enqueue(2);
+	
 	h.print();
 	
 	return 0;
