@@ -73,8 +73,9 @@ class MinHeap {
 
 int main() {
 	MinHeap h;
-	h.enqueue(3);
 	h.enqueue(2);
+	h.enqueue(1);
+	h.enqueue(4);
 	
 	h.print();
 	
